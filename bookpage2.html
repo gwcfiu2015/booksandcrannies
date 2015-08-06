@@ -1,0 +1,86 @@
+<html>    
+    <head>
+        <title>Books & Crannies</title>
+        <!--TOP ICON-->
+        <link rel="shortcut icon" href="bookworm.png">
+<!--        JQUERY CODE-->
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <meta charset="utf-8">
+<!--        STYLING-->
+        <link href="CSS1.css" rel="stylesheet">
+        <link href="bookpage.css" rel="stylesheet">
+<!--        RESIZING FOR MOBILE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--       JAVASCRIPT-->
+        <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+        <script type="text/javascript" src="bookpage2.js" >
+        </script>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body>
+<!---------------------------------HEADING------------------------->
+        <!--LOGO-->
+ <div id="container">    
+        <div style="width:610px;height:500px;border:0px;color: #31C4D1">
+            <div>
+                <img src="Pics/bookworm.png" width="30%" height="30%"> 
+                <h1>BOOKS & CRANNIES</h1>
+            </br>
+                 <ul id="menu-bar">
+                 <li class="active"><a href="homepage.html">Home</a></li>
+                 <li class = "active"><a href="bookpage2.html">Find A Book</a>
+                 </li>
+                 <li class = "active"><a href="wishlistpage.html">Wishlist</a>
+                 </li>
+                 <li class = "active"><a href="booksreadpage.html">Books I've Read</a></li>
+                <li class="active"><a href="index.html">Log in</a></li>     
+                     
+                </ul>
+                </br>
+                </br>
+                </br>
+
+
+<form>
+    <div class="ui-field-contain">
+        <label for="select-native-1">Subject:</label>
+        <select name="select-native-1" id="selectBook">
+            <option value="1" selected="selected">Adventure</option>
+            <option value="2" selected="selected">Biography</option>
+            <option value="3" selected="selected">Business</option>
+            <option value="4" selected="selected">Classics</option>
+            <option value="5" selected="selected">Crime</option>
+            <option value="6" selected="selected">Fantasy</option>
+            <option value="7" selected="selected">Fiction</option>
+            <option value="8" selected="selected">History</option>
+            <option value="9" selected="selected">Horror</option>
+            <option value="10" selected="selected">Philosophy</option>
+            <option value="11" selected="selected">Poetry</option>
+            <option value="12" selected="selected">Politics</option>
+            <option value="13" selected="selected">Religion</option>
+            <option value="14" selected="selected">Romance</option>
+            <option value="15" selected="selected">Science Fiction</option>
+            <option value="16" selected="selected">Sports</option>
+            <option value="17" selected="selected">Thriller</option>
+        </select>
+    </div>
+</form>  
+    </p>
+             <!----WHERE THE BOOK INFORMATION GOES-->
+             <div id="book"></div><p/>
+             
+<span id="bookButton">             
+<!--         FIND BOOK     -->
+         <input type="button"  id="btn" onclick="findValue()" value="Find My Book"/>
+             </span>
+<!--             ADD TO READ LIST-->
+        <input type="button" name="read" id="read" value="I've read that!" onclick="addBooksRead()">
+<!--             ADD TO WISH LIST-->
+        <input type="button" class="btn" name="wishlist" id="wishlist" value="Add to Wishlist" onclick="addToDatabase()">
+    
+    
+</div>
+</div>
+    </body>
+</html>

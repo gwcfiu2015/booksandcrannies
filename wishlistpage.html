@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title>Books & Crannies</title>
+        <link rel="shortcut icon" href="bookworm.png">
+        <meta charset="utf-8">
+            <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+        <script type="text/javascript" src="bookpage2.js" ></script>
+        
+<!--      //  <li><a href="index.html">Home</a></li>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="CSS1.css" rel="stylesheet">
+        <link href="wishlistpage.css" rel="stylesheet">
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+<div id="container">    
+        <div style="width:610px;height:500px;border:0px;color: #31C4D1">
+            <div>
+                <img src="Pics/bookworm.png" width="30%" height="30%"> 
+                <h1>BOOKS & CRANNIES</h1>
+            </br>
+                 <ul id="menu-bar">
+                 <li class="active"><a href="homepage.html">Home</a></li>
+                 <li class = "active"><a href="bookpage2.html">Find A Book</a>
+                 </li>
+                 <li class = "active"><a href="wishlistpage.html">Wishlist</a>
+                 </li>
+                 <li class = "active"><a href="booksreadpage.html">Books I've Read</a></li>
+                <li class="active"><a href="ParsePlatform-Todo-de97987/index.html">Log in</a></li>     
+                     
+                </ul>
+                </br>
+                </br>
+                </br>
+
+<div id="wishlistToPopulate">
+</div>
+        
+        <script type="text/javascript">
+           Parse.initialize("O2G7uVifV3LltYvdsdZBG70Dj7YlFVw5ybBJLRXs", "FjRlplnTs8ewAWedshWejrMFQKwwWYFk8771aMUE");
+            
+
+            var CurrentBook = Parse.Object.extend("CurrentBook");
+            
+            var query = new Parse.Query(CurrentBook);
+            query.equalTo("wishlist","true");
+            var user = Parse.User.current();
+            query.equalTo("user",user);
+            query.find({
+                success: function(results) {
+                    $("#wishlistToPopulate").html("");
+                    for (var i=0; i<results.length; i++) {
+//                        $("#wishlistToPopulate").append("<ul id='>"+results[i].id+"' + results[i].get("title")+ " - " + results[i].get("author")+'<button class="delete" id="delete" data-id="'+i+'">Delete</button>'+ </ul>");
+                         $("#wishlistToPopulate").append("<ul>"+results[i].get("title")+ " - " + results[i].get("author")+' &nbsp;&nbsp;&nbsp;&nbsp;<button class="delete" id="'+results[i].id+'" onclick="deleteWLBook(this.id )">Delete</button>'+ "</ul>");
+                        
+                    }
+                }, 
+                error: function(error) {
+                    //code for error
+                }
+            });
+                
+                
+                function deleteWLBook(id) {
+                    var query = new Parse.Query(CurrentBook);
+                    query.get(id, {
+                        success: function(book) {
+                            book.destroy({});
+                            (function($) {
+                            $(this.id).remove();
+                            });
+                        }, 
+                        error: function(book, error) {
+
+                        }
+                    });
+                }
+
+        </script>
+    
+    
+</div>
+</div>
+
+    </body>
+</html>
